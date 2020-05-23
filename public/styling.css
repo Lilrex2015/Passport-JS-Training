@@ -5,30 +5,35 @@
     
 }
 
+.navDivClass{
+    position: relative;
+}
 
 #h1Main{
 
     text-align: center;
+    width: 50vw;
     position: absolute;
     left: 25%;
-
+   
 }
 
 
 
 .MenuButtons
 {
-
     background-color: lime;
     display: inline-block;
     font-size: 30px;
-    padding-left: 5px;
-    margin-left: 50px;
-    position: relative;
+     padding-left: 5px;
+     margin-left: 50px;
+     position: relative;
     top: 100px;
     width: 150px;
-    transition: width 2s;
+    transition: width 1s; 
     
+
+
 }
 
 @keyframes phase{
@@ -43,6 +48,6 @@
     animation-duration: 2s;
     animation-direction: alternate-reverse;
     animation-iteration-count: infinite;
-    width: 300px;
+    width: 200px; 
     
 }
