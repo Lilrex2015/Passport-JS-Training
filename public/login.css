@@ -6,12 +6,13 @@
     background-image: url("/assets/Youtube_Logo.png");
     background-repeat: no-repeat;
     background-size: 350px 150px;
-    background-position: 80% 40%;
+    background-position: 90% 40%;
     height: 200px;
     border: 5px solid  white;
     background-color: white;
     border-radius: 25px;
     margin-top: 200px;
+    margin-left: 100px;
     width: 80%;
     position: relative;
 
@@ -44,11 +45,12 @@
     background-image: url("/assets/Twitch_Logo.png");
     background-repeat: no-repeat;
     background-size: 250px 150px;
-    background-position:80% 40%;
+    background-position:90% 40%;
     border: 5px solid rgb(144,71,255);
     border-radius: 25px;
     width: 80%;
     margin-top: 200px;
+    margin-left: 100px;
     height: 200px;
     
    
