@@ -23,7 +23,7 @@
 #GoogleButton{
 
     color: white;
-    display: inline-block;
+
     font-size: 30px;
     font-family: Georgia, Times, 'Times New Roman', serif;
     border: 2px solid green;
@@ -60,9 +60,9 @@
 
 #TwitchButton
 {
-    color: white;
-    display: inline-block;
-    font-size: 30px;
+    
+    
+    font-size: 40px;
     font-family: Georgia, Times, 'Times New Roman', serif;
     border: 2px solid green;
     border-radius: 10%;
