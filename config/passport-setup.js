@@ -10,14 +10,14 @@ const api_keys = {
 
 Passport.serializeUser((user, done) => {
 
-    console.log("3");
+    console.log("3 user " , user);
 done(null, user.id);
 
 
 });
 
 Passport.deserializeUser((id, done) => {
-    console.log("4");
+    console.log("4 id ", id);
 
     User.findById(id).then((user) =>{
 
@@ -39,41 +39,44 @@ Passport.use (
 
 
 }, (accessToken, refreshToken, profile, done) => {
+
+    console.log("5 profile " , profile);
+    done(null, profile);
     
     //callback from passport
 
   //check if user already exists in DB
 
-    User.findOne({
+    // User.findOne({
 
-        googleId: profile._json.sub
-    }).then((currentUser) =>{
+    //     googleId: profile._json.sub
+    // }).then((currentUser) =>{
 
-        if(currentUser)
-        {
-            // already in DB from before
-            console.log("5");
-            console.log("Current User is: " + currentUser);
-            done(null, currentUser);
-        }
-        else {
+    //     if(currentUser)
+    //     {
+    //         // already in DB from before
+    //         console.log("5");
+    //         console.log("Current User is: " + currentUser);
+    //         done(null, currentUser);
+    //     }
+    //     else {
             
-    new User ({
+    // new User ({
 
-        username: profile._json.name,
-        googleId: profile._json.sub,
-        service: 'Google'
+    //     username: profile._json.name,
+    //     googleId: profile._json.sub,
+    //     service: 'Google'
 
-    }).save().then((newUser) =>{
+    // }).save().then((newUser) =>{
 
-        console.log("6");
-        console.log('new user has been created in db ' + newUser);
-        done(null, newUser);
-    });
+    //     console.log("6");
+    //     console.log('new user has been created in db ' + newUser);
+    //     done(null, newUser);
+    // });
 
 
-        }
-    })
+    //     }
+    // })
 
 
 
