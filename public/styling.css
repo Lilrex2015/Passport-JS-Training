@@ -30,7 +30,7 @@
      position: relative;
      top: 100px;
      width: 150px;
-     transition: width 1s; 
+     
     
 }
 
@@ -51,6 +51,6 @@
     animation-duration: 2s;
     animation-direction: alternate-reverse;
     animation-iteration-count: infinite;
-    width: 155px; 
+    
     
 }
