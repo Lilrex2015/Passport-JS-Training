@@ -10,12 +10,14 @@ const api_keys = {
 
 Passport.serializeUser((user, done) => {
 
+    console.log("3");
 done(null, user.id);
 
 
 });
 
 Passport.deserializeUser((id, done) => {
+    console.log("4");
 
     User.findById(id).then((user) =>{
 
@@ -50,7 +52,7 @@ Passport.use (
         if(currentUser)
         {
             // already in DB from before
-
+            console.log("5");
             console.log("Current User is: " + currentUser);
             done(null, currentUser);
         }
@@ -64,6 +66,7 @@ Passport.use (
 
     }).save().then((newUser) =>{
 
+        console.log("6");
         console.log('new user has been created in db ' + newUser);
         done(null, newUser);
     });

@@ -32,8 +32,11 @@
      width: 150px;
      transition: width 1s; 
     
+}
 
+#logoutButton{
 
+    display: none;
 }
 
 @keyframes phase{

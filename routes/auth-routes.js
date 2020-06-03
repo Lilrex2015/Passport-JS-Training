@@ -26,19 +26,22 @@ router.get('/logout' , (req, res) => {
 
 */
 
-// auth with Google
+// auth with Google Step 1
 
 router.get('/google', passport.authenticate('google', {
 
     scope : ['profile']
-})
-
+}),
+   
 );
 
 
+// Step 2, Step 3 goes to Passport Setup.js
 router.get('/google/redirect/' , passport.authenticate('google'), (req, res) =>{
 
-    res.redirect('/profile/');
+    console.log("2");
+    console.log("res ", res);
+    //res.redirect('/profile/');
     
 });
 
