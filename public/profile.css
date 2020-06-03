@@ -13,8 +13,9 @@
 
     display: flexbox;
     flex-wrap: wrap;
-  
+    width: 25%;
     margin-top: 150px;
-    
+    margin-left: 35%;
     border: 2px solid white;
+    
 }
