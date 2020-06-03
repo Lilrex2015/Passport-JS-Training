@@ -5,7 +5,7 @@ const User = require('../models/user-models');
 
 const api_keys = {
     YoutubeID: process.env.Youtube_ID,
-    YouTubeSecret : process.env. YouTube_Secret,
+    YouTubeSecret : process.env.YouTube_Secret,
 };
 
 Passport.serializeUser((user, done) => {

@@ -39,8 +39,8 @@ router.get('/google', passport.authenticate('google', {
 // Step 2, Step 3 goes to Passport Setup.js
 router.get('/google/redirect/' , passport.authenticate('google'), (req, res) =>{
 
-    console.log("2");
-    res.redirect('/profile/');
+    console.log("2 req" , req.user);
+    res.redirect('/profile');
     
 });
 
