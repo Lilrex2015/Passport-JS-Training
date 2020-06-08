@@ -36,7 +36,7 @@
 
 #logoutButton{
 
-    display: none;
+   visibility: hidden;
 }
 
 @keyframes phase{

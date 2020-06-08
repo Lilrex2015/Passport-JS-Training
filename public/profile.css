@@ -19,3 +19,13 @@
     border: 2px solid white;
     
 }
+
+#logoutButton{
+
+    visibility: visible;
+}
+
+#loginButton{
+
+    visibility: hidden;
+}
