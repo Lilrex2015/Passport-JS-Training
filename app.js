@@ -29,9 +29,20 @@ app.use(passport.session());
 
 
 // connect to monogdb
-mongoose.connect(process.env.dbURI, { useNewUrlParser: true ,  useUnifiedTopology: true }, () =>{
+mongoose.connect(process.env.dbURI, { useNewUrlParser: true ,  useUnifiedTopology: true }, (err, db) =>{
 
-    console.log("Connected to mongo");
+    if(err)
+    {
+        console.error("Something went wrong: " , err);
+
+    }
+    else{
+
+        console.log("Connected to mongo");
+        console.log("db-- " , db);
+    }
+    
+    
 });
 
 app.use('/auth', authRoutes);
