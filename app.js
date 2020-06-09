@@ -14,11 +14,12 @@ const app = express();
 // setup view engine
 
 app.set('view engine', 'ejs');
+
 app.use(express.static(__dirname + '/public'));
 
 app.use(cookieSession({
 
-maxAge: 24 *60 * 60 * 1000,
+maxAge: 24 * 60 * 60 * 1000,
 keys:'thisisatestcookiekey'
 
 }));
@@ -39,7 +40,7 @@ mongoose.connect(process.env.dbURI, { useNewUrlParser: true ,  useUnifiedTopolog
     else{
 
         console.log("Connected to mongo");
-        console.log("db-- " , db);
+        console.log("db successfully reached");
     }
     
     
@@ -47,6 +48,7 @@ mongoose.connect(process.env.dbURI, { useNewUrlParser: true ,  useUnifiedTopolog
 
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
+
 //create home route
 
 app.get('/' , (req, res) => {
