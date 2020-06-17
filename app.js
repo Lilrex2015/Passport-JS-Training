@@ -4,6 +4,7 @@ const profileRoutes = require('./routes/profile-routes.js');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
+const expressSession = require('express-session');
 const passport = require('passport');
 require('dotenv').config();
 
@@ -17,10 +18,12 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 
-app.use(cookieSession({
+app.use(expressSession({
 
-maxAge: 24 * 60 * 60 * 1000,
-keys:'thisisatestcookiekey'
+cookie: {maxAge: 24 * 60 * 60 * 1000},
+resave: false,
+saveUninitialized: false,
+secret: process.env.cookieKey,
 
 }));
 

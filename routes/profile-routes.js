@@ -3,8 +3,8 @@ const router = require('express').Router();
 
 const authCheck = (req, res, next) => {
 
-    console.log("6 req" , req.user);
-    if(!req.user){
+    console.log("6 req" , req.route);
+    if(req.user){
         console.log("7");
         next();
        
@@ -14,7 +14,7 @@ const authCheck = (req, res, next) => {
 };
 
 router.get('/',  authCheck, (req, res) => {
-    console.log("8 req" , req);
+    console.log("8 req", req);
     
     
     res.render('profile',  {user: req.user});

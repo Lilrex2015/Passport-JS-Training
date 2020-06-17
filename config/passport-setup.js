@@ -10,14 +10,14 @@ const api_keys = {
 
 Passport.serializeUser((user, done) => {
 
-    console.log("3 user " , user);
+    console.log("3 Serialize User " , user);
 done(null, user.id);
 
 
 });
 
 Passport.deserializeUser((id, done) => {
-    console.log("4 id ", id);
+    console.log("4 Deserialize User ", id);
 
     User.findById(id).then((user) =>{
 
