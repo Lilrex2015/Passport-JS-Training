@@ -2,8 +2,9 @@ const express = require('express');
 const authRoutes = require('./routes/auth-routes.js');
 const profileRoutes = require('./routes/profile-routes.js');
 const passportSetup = require('./config/passport-setup');
+const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
-const cookieSession = require('cookie-session');
+// const cookieSession = require('cookie-session'); Not used any more, replaced with Express-Sessions
 const expressSession = require('express-session');
 const passport = require('passport');
 require('dotenv').config();
@@ -17,10 +18,11 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(expressSession({
 
-cookie: {maxAge: 24 * 60 * 60 * 1000},
+cookie: {maxAge: 30 * 24 * 60 * 60 * 1000},
 resave: false,
 saveUninitialized: false,
 secret: process.env.cookieKey,

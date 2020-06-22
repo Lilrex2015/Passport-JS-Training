@@ -13,6 +13,8 @@ const authCheck = (req, res, next) => {
     }
 };
 
+
+// step 7
 router.get('/',  authCheck, (req, res) => {
     console.log("8 req", req.user);
     

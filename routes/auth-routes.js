@@ -49,8 +49,22 @@ router.get('/google/redirect/' , passport.authenticate('google'), (req, res) =>{
 /* 
 
 ============================================
-============================================
+========== Twitch login ====================
 ============================================
 
 */
+
+router.get('/twitch', passport.authenticate('twitch'));
+
+
+// Step 2, Step 3 goes to Passport Setup.js
+router.get('/twitch/redirect/' , passport.authenticate('twitch', { failureRedirect: "/" }), (req, res) =>{
+
+    console.log("2 req" , req.user);
+    res.redirect('/profile/');
+    
+});
+
+
+
 module.exports = router;
