@@ -13,7 +13,9 @@ router.get('/login', (req, res) => {
 router.get('/logout' , (req, res) => {
 
     // handle with passport
+    req.session = null;
     req.logout();
+  
     res.redirect('/');
 });
 

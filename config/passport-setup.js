@@ -58,7 +58,7 @@ Passport.use (
 
     User.findOne({
 
-        googleId: profile._json.sub
+        serviceId: profile._json.sub
     }).then((currentUser) =>{
 
         if(currentUser)
@@ -73,7 +73,7 @@ Passport.use (
     new User ({
 
         username: profile._json.name,
-        googleId: profile._json.sub,
+        serviceId: profile._json.sub,
         service: 'Google'
 
     }).save().then((newUser) =>{
@@ -103,44 +103,46 @@ Passport.use (
     new twitchStrategy ({
 
 //options for passport
-        clientID: api_keys.Twitch_ID,
-        clientSecret : api_keys.Twitch_Secret,
+        clientID: 'j1aee5qq0o5jmz74riq1onn13tsrkk',// api_keys.Twitch_ID,
+        clientSecret : '0nfzo0094hhq549z6t0gcmko3usu1g', // api_keys.Twitch_Secret,
         callbackURL: '/auth/twitch/redirect/',
      
 
 }, (accessToken, refreshToken, profile, done) => {
 
-    console.log("5 profile " , profile);
-    console.log("5b profile " , profile.id);
+    console.log("5 Twitch profile " , profile);
+    console.log("5b Twitch profile " , profile.id);
    // done(null, profile);
     
     //callback from passport
 
   //check if user already exists in DB
 
+ 
+
     User.findOne({
 
-        TwitchId: profile._json.sub
+        serviceId: profile.id
     }).then((currentUser) =>{
 
         if(currentUser)
         {
             // already in DB from before
-            console.log("5a");
-            console.log("Current User is: " + currentUser);
+            console.log("5a Twitch");
+            console.log("Current Twitch User is: " + currentUser);
             done(null, currentUser);
         }
         else {
             
     new User ({
 
-        username: profile._json.name,
-        TwitchId: profile._json.sub,
+        username: profile.display_name,
+        serviceId: profile.id,
         service: 'Twitch'
 
     }).save().then((newUser) =>{
 
-        console.log("6");
+        console.log("6 twitch");
         console.log('new user has been created in db ' + newUser);
         done(null, newUser);
     });
