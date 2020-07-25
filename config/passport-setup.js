@@ -44,6 +44,7 @@ Passport.use (
         clientID: api_keys.YoutubeID,
         clientSecret : api_keys.YouTubeSecret,
         callbackURL: '/auth/google/redirect/',
+        scope:['moderation:read', 'channel:read:stream_key']
 
 
 }, (accessToken, refreshToken, profile, done) => {
@@ -106,12 +107,13 @@ Passport.use (
         clientID: 'j1aee5qq0o5jmz74riq1onn13tsrkk',// api_keys.Twitch_ID,
         clientSecret : '0nfzo0094hhq549z6t0gcmko3usu1g', // api_keys.Twitch_Secret,
         callbackURL: '/auth/twitch/redirect/',
-     
+        scope: ['user:edit', 'analytics:read:games', 'channel:moderate'],
+        prompt: 'select_account' 
 
 }, (accessToken, refreshToken, profile, done) => {
 
-    console.log("5 Twitch profile " , profile);
-    console.log("5b Twitch profile " , profile.id);
+    console.log("5 Twitch access token " , accessToken);
+    // console.log("5b Twitch profile " , profile.id);
    // done(null, profile);
     
     //callback from passport
