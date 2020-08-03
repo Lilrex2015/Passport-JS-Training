@@ -1,6 +1,0 @@
-Notes for features
-
-
-1. allow coloumn names to be edited
-2. excel import
-3. 
