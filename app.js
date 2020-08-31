@@ -1,13 +1,23 @@
+
+// Modules
 const express = require('express');
-const authRoutes = require('./routes/auth-routes.js');
-const profileRoutes = require('./routes/profile-routes.js');
-const passportSetup = require('./config/passport-setup');
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 // const cookieSession = require('cookie-session'); Not used any more, replaced with Express-Sessions
 const expressSession = require('express-session');
 const passport = require('passport');
+
+// Routes
+const authRoutes = require('./routes/auth-routes.js');
+const profileRoutes = require('./routes/profile-routes.js');
+const passportSetup = require('./config/passport-setup');
+
+//Security
 require('dotenv').config();
+
+
+
+
 
 const app = express();
 
